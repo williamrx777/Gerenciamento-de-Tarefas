@@ -1,6 +1,7 @@
 package com.gerenciamento.tarefa.infra;
 
 import com.gerenciamento.tarefa.repositories.UserRepository;
+import com.gerenciamento.tarefa.services.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 public class Task {
     // ID, título, descrição, data de criação, data limite e status.
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     private String titulo;
     private String descricao;
     private LocalDate data_inicio;

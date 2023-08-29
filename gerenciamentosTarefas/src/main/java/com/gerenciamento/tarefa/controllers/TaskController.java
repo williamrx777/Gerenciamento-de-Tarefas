@@ -6,7 +6,7 @@ import com.gerenciamento.tarefa.repositories.TaskRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +34,7 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity pegarTarefa(@PathVariable Long id){
+    public ResponseEntity pegarTarefa(@PathVariable String id){
         Optional<Task> task = repository.findById(id);
         if (task.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tarefa não encontrada");
@@ -44,7 +44,7 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity atualizar(@PathVariable Long id, @RequestBody @Valid TaskDTO taskDTO){
+    public ResponseEntity atualizar(@PathVariable String id, @RequestBody @Valid TaskDTO taskDTO){
         Optional<Task> task0 = repository.findById(id);
         if (task0.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tarefa não encontrada");
@@ -56,7 +56,7 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity delete(@PathVariable String id){
         Optional<Task> task = repository.findById(id);
         if (task.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tarefa não encontrada");

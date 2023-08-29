@@ -5,21 +5,21 @@ import com.gerenciamento.tarefa.dtos.AuthenticationDTO;
 import com.gerenciamento.tarefa.dtos.LoginResponseDTO;
 import com.gerenciamento.tarefa.dtos.RegisterDTO;
 import com.gerenciamento.tarefa.entities.User;
-import com.gerenciamento.tarefa.infra.TokenService;
+import com.gerenciamento.tarefa.services.TokenService;
 import com.gerenciamento.tarefa.repositories.UserRepository;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("auth")
+
 public class AuthenticationController {
 
     @Autowired
@@ -28,6 +28,9 @@ public class AuthenticationController {
     private UserRepository repository;
     @Autowired
     private TokenService tokenService;
+
+
+
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){

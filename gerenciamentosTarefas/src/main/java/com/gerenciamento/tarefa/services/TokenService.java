@@ -1,4 +1,4 @@
-package com.gerenciamento.tarefa.infra;
+package com.gerenciamento.tarefa.services;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

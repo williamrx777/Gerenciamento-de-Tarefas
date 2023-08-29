@@ -1,4 +1,6 @@
 package com.gerenciamento.tarefa.dtos;
 
-public record AuthenticationDTO(String login, String password) {
+import jakarta.validation.constraints.NotBlank;
+
+public record AuthenticationDTO(@NotBlank String login,@NotBlank String password) {
 }
